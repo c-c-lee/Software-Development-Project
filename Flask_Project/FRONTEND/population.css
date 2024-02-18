@@ -1,0 +1,82 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form {
+    background-color:white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h1 {
+    color: steelblue;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin: 20px 0 10px;
+    font-weight: bold;
+    color: black;
+}
+
+select, input[type="text"], input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0 20px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: black;
+}
+
+.selected-populations {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.selected-population {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.selected-population span {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, border 0.3s; /* Added border transition */
+}
+
+input[type="submit"]:hover {
+    background-color: mediumaquamarine;
+    border: 2px solid mediumaquamarine; /* Updated border color */
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Differentiation Analysis</title>
+    <link rel="stylesheet" href="popresults.css">
+</head>
+<body>
+    <h1>Population Differentiation Analysis Results</h1>
+    <p> Allele & genotype frequency </p>
+    <div>
+        <h2>Clinical Relevance Table</h2>
+        <table id="clinicalTable">
+            <!-- Your clinical relevance table content goes here -->
+            <thead>
+                <tr>
+                    <th>CLDN</th>
+                    <th>CLNALLELEID</th>
+                    <th>CLNSIG</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample data, replace with your actual data -->
+                <tr>
+                    <td>Congenital_myasthenic_syndrome_8</td>
+                    <td>446941</td>
+                    <td>Uncertain_significance</td>
+                </tr>
+                <tr>
+                    <td>Combined_immunodeficiency_due_to_OX40_deficiency</td>
+                    <td>1153220</td>
+                    <td>Benign</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p> To seek further updates on clinical relevance, please search the CLNALLELEID on <a href="https://www.ncbi.nlm.nih.gov/clinvar/" target="_blank">ClinVar</a>.</p>
+    <p> Data visualisation - Single plot / matrix </p>
+    <div>
+        <button id="downloadButton">Download Text File</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
