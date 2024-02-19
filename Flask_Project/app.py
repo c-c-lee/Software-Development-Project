@@ -1,6 +1,6 @@
 from flask import Flask                 # also import render template, request..
 from flask_sqlalchemy import SQLAlchemy
-from Database.db_schema import db 
+from Database.db_schema import db, app
 #import sql queries and other funtions from relevant directories
 
 
