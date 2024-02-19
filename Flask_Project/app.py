@@ -1,20 +1,35 @@
 from flask import Flask                 # also import render template, request..
 from flask_sqlalchemy import SQLAlchemy
+from Database.db_schema import db 
 #import sql queries and other funtions from relevant directories
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ArchGenome.db'    # Ensure correct path to database is here
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
 
 
 # Define routes for backend here: 
+
+#homepage route
 
 #@app.route("/")
 #@app.route("/home")
 #def home():
     #return render_template("index.html")
+
+#admixture routes 
+
+#@app.route("")
+
+
+
+#population analysis routes
+
+
+
+
+
+#clustering routes
+
+
+
+
 
 
 #if __name__ == '__main__':
