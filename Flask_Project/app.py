@@ -1,4 +1,4 @@
-from flask import Flask                 #also import render template, request..
+from flask import Flask                 # also import render template, request..
 from flask_sqlalchemy import SQLAlchemy
 #import sql queries and other funtions from relevant directories
 
@@ -12,6 +12,7 @@ db = SQLAlchemy(app)
 # Define routes for backend here: 
 
 #@app.route("/")
+#@app.route("/home")
 #def home():
     #return render_template("index.html")
 
