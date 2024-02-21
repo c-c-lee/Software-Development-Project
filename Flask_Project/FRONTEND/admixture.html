@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Differentiation Analysis</title>
+    <link rel="stylesheet" href="user_selection.css">
+</head>
+<body>
+    <h1>Admixture Analysis</h1>
+    
+    <form action="popresults.html" method="post">
+        <label for="population_type">Select Population/Superpopulation:</label>
+        <select name="population_type" id="population_type" onchange="populateDropdown()">
+            <option value="Please Select Option">Please Select Option</option>
+            <option value="superpopulation">Superpopulation</option>
+            <option value="population">Population</option>
+        </select>
+
+        <div class="selected-populations" id="selectedPopulationsContainer">
+            <!-- Selected populations will be displayed here -->
+        </div>
+
+        <label for="selected_population">Select Region:</label>
+        <select name="selected_population" id="selected_population" multiple>
+            <!-- Options will be dynamically populated based on user selection -->
+        </select>
+
+        <input type="submit" value="Submit Analysis">
+        
+        <script src="script.js"></script>
+    </form>
+</body>
+</html>
