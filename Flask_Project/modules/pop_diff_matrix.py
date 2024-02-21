@@ -67,8 +67,8 @@ def calculate_pairwise_fst(data, output_file_path='C:/Users/siril/Group Project/
     # Save pairwise FST values to a text file 
     pairwise_fst_matrix.to_csv(output_file_path, sep='\t', float_format='%.3f')
 
-    # Return the pairwise FST matrix heatmap and text file to static directory(used for download link)
-    return pairwise_fst_matrix
+    # Return the pairwise FST matrix heatmap, text file to static directory and file path in variable(used for download link)
+    return pairwise_fst_matrix, output_file_path
 
 
 
