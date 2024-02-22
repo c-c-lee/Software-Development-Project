@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-def calculate_pairwise_fst(data, output_file_path='results/pairwise_fst.txt'):
+def calculate_pairwise_fst(data, output_file_path='src/analysis/Pop_diff_result/pairwise_fst.txt'):
     # Create a dictionary to store allele frequencies for each population
     allele_freqs = {}
 
