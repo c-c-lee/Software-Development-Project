@@ -44,15 +44,17 @@ class GenotypeFrequency(db.Model):
     population_code = db.Column(db.String(255), db.ForeignKey('population.population_code'), nullable=False)
 
 class AdmixtureK3(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String, primary_key=True)
     population_code = db.Column(db.String(255), db.ForeignKey('population.population_code'), nullable=False)
+    superpopulation = db.Column(db.String(255), nullable=False)
     Ancestry1 = db.Column(db.Float, nullable=False)
     Ancestry2 = db.Column(db.Float, nullable=False)
     Ancestry3 = db.Column(db.Float, nullable=False)
 
 class AdmixtureK5(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String, primary_key=True)
     population_code = db.Column(db.String(255), db.ForeignKey('population.population_code'), nullable=False)
+    superpopulation = db.Column(db.String(255), nullable=False)
     Ancestry1 = db.Column(db.Float, nullable=False)
     Ancestry2 = db.Column(db.Float, nullable=False)
     Ancestry3 = db.Column(db.Float, nullable=False)
