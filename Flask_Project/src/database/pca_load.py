@@ -4,9 +4,10 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from db_schema import db, PCA, Population
 
+# Initialize Flask application
 app = Flask(__name__)
 
-# Replace <ABSOLUTE_PATH_TO_YOUR_PROJECT> with the actual path to your project root
+# Used path of the project root path
 project_root = 'C:/Users/roxan/OneDrive/Documents/GitHub/Software-Development-Project'
 
 # Absolute path to the database file
