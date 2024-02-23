@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ArchGenome.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/instance/ArchGenome.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -46,7 +46,7 @@ class GenotypeFrequency(db.Model):
 class AdmixtureK3(db.Model):
     id = db.Column(db.String, primary_key=True)
     population_code = db.Column(db.String(255), db.ForeignKey('population.population_code'), nullable=False)
-    super_population = db.Column(db.String(255), nullable=False)
+    superpopulation = db.Column(db.String(255), nullable=False)
     Ancestry1 = db.Column(db.Float, nullable=False)
     Ancestry2 = db.Column(db.Float, nullable=False)
     Ancestry3 = db.Column(db.Float, nullable=False)
@@ -54,7 +54,7 @@ class AdmixtureK3(db.Model):
 class AdmixtureK5(db.Model):
     id = db.Column(db.String, primary_key=True)
     population_code = db.Column(db.String(255), db.ForeignKey('population.population_code'), nullable=False)
-    super_population = db.Column(db.String(255), nullable=False)
+    superpopulation = db.Column(db.String(255), nullable=False)
     Ancestry1 = db.Column(db.Float, nullable=False)
     Ancestry2 = db.Column(db.Float, nullable=False)
     Ancestry3 = db.Column(db.Float, nullable=False)

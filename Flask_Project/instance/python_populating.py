@@ -3,28 +3,35 @@ import sys
 import csv
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from importlib.machinery import SourceFileLoader
 
-# Set the path to the directory ABOVE 'src'
-project_dir = '/Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project'
-sys.path.append(project_dir + '/src')  # Ensure the 'src' directory is in the path
-
-from database.db_schema import AdmixtureK3, AdmixtureK5
+# Add the directory containing the src directory to the Python path
+project_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
+sys.path.append(project_dir)
 
 app = Flask(__name__)
-# Corrected the database URI to point to the correct database file
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(project_dir, 'src/instance/ArchGenome.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/instance/ArchGenome.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+# Construct the absolute path to db_schema.py
+db_schema_path = '/Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/src/database/db_schema.py'
+
+
+# Import AdmixtureK3 and AdmixtureK5 from db_schema.py
+db_schema = SourceFileLoader("db_schema", db_schema_path).load_module()
+AdmixtureK3 = db_schema.AdmixtureK3
+AdmixtureK5 = db_schema.AdmixtureK5
+
 def populate_admixture_k3():
-    with open(os.path.join(project_dir, 'src/tables/admixture_results/admixture_k3.tsv'), 'r') as file:
+    with open('/Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/src/tables/admixture_results/admixture_k3.tsv', 'r') as file:
         reader = csv.DictReader(file, delimiter='\t')
         for row in reader:
             try:
                 admixture_k3 = AdmixtureK3(
                     id=row['id'],
                     population_code=row['Population'],
-                    super_population=row['Super_Population'],
+                    superpopulation=row['SuperPopulation'],
                     Ancestry1=float(row['Ancestry1']),
                     Ancestry2=float(row['Ancestry2']),
                     Ancestry3=float(row['Ancestry3'])
@@ -36,14 +43,14 @@ def populate_admixture_k3():
                 print(f"Failed to add row {row['id']}: {e}")
 
 def populate_admixture_k5():
-    with open(os.path.join(project_dir, 'src/tables/admixture_results/admixture_k5.tsv'), 'r') as file:
+    with open('/Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/src/tables/admixture_results/admixture_k5.tsv', 'r') as file:
         reader = csv.DictReader(file, delimiter='\t')
         for row in reader:
             try:
                 admixture_k5 = AdmixtureK5(
                     id=row['id'],
                     population_code=row['Population'],
-                    super_population=row['Super_Population'],
+                    superpopulation=row['SuperPopulation'],
                     Ancestry1=float(row['Ancestry1']),
                     Ancestry2=float(row['Ancestry2']),
                     Ancestry3=float(row['Ancestry3']),

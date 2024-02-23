@@ -1,4 +1,4 @@
-id	Population	Super_Population	Ancestry1	Ancestry2	Ancestry3	Ancestry4	Ancestry5
+id	Population	SuperPopulation	Ancestry1	Ancestry2	Ancestry3	Ancestry4	Ancestry5
 HG01881	ACB	AFR	0.934833	0.000010	0.000010	0.000010	0.065137
 HG02307	ACB	AFR	0.999960	0.000010	0.000010	0.000010	0.000010
 HG02284	ACB	AFR	0.000010	0.000010	0.999960	0.000010	0.000010
