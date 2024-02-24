@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ArchGenome.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://///Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/instance/ArchGenome.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -71,3 +71,7 @@ class PCA(db.Model):
     
 with app.app_context():
     db.create_all()
+
+
+
+    
