@@ -8,7 +8,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-db_path = "Software-Development-Project/instance/ArchGenome.db"
+
 app = Flask(__name__)
 
 # Define routes
