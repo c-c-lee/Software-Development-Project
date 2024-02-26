@@ -3,6 +3,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
+import base64
+from io import BytesIO
 
 def calculate_pairwise_fst(data, output_file_path='Pop_diff_result/pairwise_fst.txt'):
     # Create a dictionary to store allele frequencies for each population
@@ -63,7 +65,16 @@ def calculate_pairwise_fst(data, output_file_path='Pop_diff_result/pairwise_fst.
     plt.figure(figsize=(8, 6))
     sns.heatmap(pairwise_fst_matrix.astype(float), annot=True, cmap="viridis", linewidths=.5, fmt=".3f")
     plt.title('Pairwise FST Matrix')
-    plt.show()
+    
+    img_buf = BytesIO()
+    plt.savefig(img_buf, format='png')
+    img_buf.seek(0)
+
+    # Encode the image as base64
+    img_base64 = base64.b64encode(img_buf.read()).decode('utf-8')
+
+    # Close the plot to avoid displaying it
+    plt.close()
 
     # Save pairwise FST values to a text file
     current_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script (app.py)
@@ -84,14 +95,17 @@ def calculate_pairwise_fst(data, output_file_path='Pop_diff_result/pairwise_fst.
     pairwise_fst_matrix.to_csv(output_file_path, sep='\t', float_format='%.3f')
 
     # Return the pairwise FST matrix heatmap, text file to static directory and file path in variable(used for download link)
-    return pairwise_fst_matrix, output_file_path
+    return pairwise_fst_matrix, img_base64, output_file_path
 
 
 
 
-#data = [("rs1", "IND", 0.9, 0.1),("rs1", "UK", 1.0, 0.0)]
+#data = [("rs1", "JPN", 0.9, 0.1),("rs1", "UK", 1.0, 0.0)]
 
-#result = calculate_pairwise_fst(data)
+#Matrix, img, filepath = calculate_pairwise_fst(data)
+
+#print(img)
+#print(filepath)
 
 
 
