@@ -1,5 +1,6 @@
 
-#import db from db_schema.py and relevant models (e.g SNP, Population..) from schema.py
+#from db_schema import db and relevant models (e.g SNP, Population..) from schema.py
+#from db_schema import app
 from flask_sqlalchemy import SQLAlchemy 
 
 #test with db and make adjustments if needed
