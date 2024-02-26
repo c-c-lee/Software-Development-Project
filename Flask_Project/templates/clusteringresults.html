@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='clusteringresults.css') }}">
+</head>
+<body>
+    <h1>Analysis Results</h1>
+    <h2>Selection Summary</h2>
+    <p>Population Type: {{ population_type }}</p>
+    <p>Selected Population:</p>
+    <ul>
+        {% for population in selected_population %}
+        <li>{{ population }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display the generated plot image -->
+    <img src="{{ url_for('static', filename=image_file) }}" alt="PCA Plot">
+</body>
+</html>
