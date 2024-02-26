@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Population Differentiation Analysis</title>
-    <link rel="stylesheet" href="user_selection.css">
+    <!-- Correctly reference the CSS file using Flask's url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_selection.css') }}">
 </head>
 <body>
     <h1>Admixture Analysis</h1>
     
-    <form action="popresults.html" method="post">
+    <form action="{{ url_for('process_admixture') }}" method="post">
         <label for="population_type">Select Population/Superpopulation:</label>
         <select name="population_type" id="population_type" onchange="populateDropdown()">
             <option value="Please Select Option">Please Select Option</option>
@@ -27,8 +28,8 @@
         </select>
 
         <input type="submit" value="Submit Analysis">
-        
-        <script src="script.js"></script>
     </form>
+    <!-- Correctly reference the JavaScript file using Flask's url_for -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
