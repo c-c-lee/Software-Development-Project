@@ -12,7 +12,7 @@ sys.path.append('/Users/farzadhamzawe/group_project bioinformatics/Software-Deve
 from db_schema import db, AdmixtureK3, AdmixtureK5
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/instance/ArchGenome.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/instance/ArchGenome.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
