@@ -30,10 +30,10 @@ def retrieve_snp_info():
     # route retrieves POST request for snp ids and population selections
     if request.method == 'POST':
         user_input_type = request.form.get('input_type') #retrieve input type
-        user_input_value = request.form.getlist('input_value').split(',') #get snp ids
+        user_input_value = request.form.getlist('input_value') 
 
         # Retrieve selected populations as a list
-        selected_population = request.form.get('selected_population') # get population from user form
+        selected_population = request.form.getlist('selected_population') # get population from user form
 
         # Handle different input types
         if user_input_type == 'snp_id':
@@ -73,7 +73,7 @@ def population_differentation():
 def pd_matrix():
     if request.method == 'POST':
         user_input_type = request.form.get('input_type') #retrieve input type
-        user_input_value = request.form.getlist('input_value').split(',') #get snp ids
+        user_input_value = request.form.getlist('input_value') 
         #Retrieve selected populations as a list
         selected_populations = request.form.getlist('selected_populations')# get population(S) from user form  ?
 
