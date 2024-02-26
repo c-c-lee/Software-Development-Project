@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-def calculate_pairwise_fst(data, output_file_path='src/analysis/Pop_diff_result/pairwise_fst.txt'):
+def calculate_pairwise_fst(data, output_file_path='Pop_diff_result/pairwise_fst.txt'):
     # Create a dictionary to store allele frequencies for each population
     allele_freqs = {}
 
@@ -66,17 +66,19 @@ def calculate_pairwise_fst(data, output_file_path='src/analysis/Pop_diff_result/
     plt.show()
 
     # Save pairwise FST values to a text file
-    current_dir = os.getcwd()
-    print("Current Working Directory:", current_dir)
+    current_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script (app.py)
+    print("Current Script Directory:", current_dir)
 
     # Output file path modification
-    output_file_path = os.path.join(current_dir, output_file_path)
+    output_file_path = os.path.join(current_dir, 'Pop_diff_result', 'pairwise_fst.txt')
     print("Final Output File Path:", output_file_path)
 
-    # Check if the 'results' directory exists, if not, create it
-    results_dir = os.path.join(current_dir, 'results')
-    if not os.path.exists(results_dir):
-        os.makedirs(results_dir)
+    # Check if the 'Pop_diff_result' directory exists, if not, create it
+    result_dir = os.path.dirname(output_file_path)
+    if not os.path.exists(result_dir):
+        os.makedirs(result_dir)
+
+
 
     # Save the file
     pairwise_fst_matrix.to_csv(output_file_path, sep='\t', float_format='%.3f')
