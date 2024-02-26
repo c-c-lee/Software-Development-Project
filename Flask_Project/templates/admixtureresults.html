@@ -1,0 +1,17 @@
+<!-- Add this style within the <head> section of your HTML -->
+    <style>
+        .admixture-plot {
+          max-width: 100%; /* This makes the image responsive to the container width */
+          height: auto;  /* This maintains the aspect ratio of the image */
+          display: block; /* This centers the image in the container */
+          margin-left: auto;
+          margin-right: auto;
+        }
+      </style>
+
+
+<div>
+  {% for plot_file in plot_files %}
+  <img src="{{ url_for('static', filename='images/' + plot_file) }}" alt="Admixture Plot" class="admixture-plot">
+  {% endfor %}
+</div>
