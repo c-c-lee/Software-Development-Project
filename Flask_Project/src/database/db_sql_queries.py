@@ -1,7 +1,7 @@
 
-#from db_schema import db and relevant models (e.g SNP, Population..) from schema.py
-#from db_schema import app
+from db_schema import db, Population, Sample, SNP, AlleleFrequency, GenotypeFrequency
 from flask_sqlalchemy import SQLAlchemy 
+from db_schema import app
 
 #test with db and make adjustments if needed
 
