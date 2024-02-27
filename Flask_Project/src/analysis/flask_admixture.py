@@ -6,8 +6,8 @@ import matplotlib.patches as mpatches
 plt.ioff()
 
 # Set the absolute path to your database
-db_path = "Software-Development-Project/instance/ArchGenome.db"
-images_dir = os.path.join('/Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/static', 'images')
+db_path = "instance/ArchGenome.db"
+images_dir = os.path.join ('static', 'images')
 if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
@@ -272,7 +272,7 @@ def main_population_code(population_code):
 
 # Main function to fetch and plot admixture data based on population_code or superpopulation
 def main():
-    population_or_superpopulation = "ABC"  # Replace with your desired code or superpopulation
+    population_or_superpopulation = "SIB"  # Replace with your desired code or superpopulation
     is_population, is_superpopulation = check_input(population_or_superpopulation)
     
     if is_population:
