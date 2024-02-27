@@ -4,11 +4,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import os
 from flask import Flask, request, render_template, url_for
-    
-from src.analysis.flask_admixture import main_population_code, plot_admixture_for_superpopulation, check_input, get_population_code, get_superpopulation_code
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 
 # Path to the database file
 db_path = 'Software-Development-Project/instance/Archgenome.db'
