@@ -1,7 +1,7 @@
 import pandas as pd
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from db_schema import SNP # Import the SNP model
+from Flask_Project.src.database.db_schema import SNP # Import the SNP model
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Path/to/ArchGenome.db'

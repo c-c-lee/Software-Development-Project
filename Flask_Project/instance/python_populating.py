@@ -9,7 +9,7 @@ from sqlalchemy.exc import SQLAlchemyError
 sys.path.append('/Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/src/database')
 
 # Now you can import db_schema
-from db_schema import db, AdmixtureK3, AdmixtureK5
+from Flask_Project.src.database.db_schema import db, AdmixtureK3, AdmixtureK5
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/instance/ArchGenome.db'
