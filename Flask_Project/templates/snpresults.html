@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNP Information Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='snp_pop_results.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>SNP Information Results</h1>
+
+        <p>Allele and Genotype Frequency Table</p>
+        <table id="genotypeFrequencyTable">
+            <!-- Table dynamically populated based on user selection -->
+            <!-- Adjust column headers based on your GenotypeFrequency model -->
+            <thead>
+                <tr><th>Population</th>
+                    <th>REF Frequency</th>
+                    <th>ALT Frequency</th>
+                    <th>Hom1 Frequency</th>
+                    <th>Heterozygous Frequency</th>
+                    <th>Hom2 Frequency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically inserted here -->
+            </tbody>
+        </table>
+
+        <p>Clinical Relevance Table</p>
+        <table id="clinicalTable">
+            <!-- Table dynamically populated based on user selection -->
+            <!-- Adjust column headers based on your SNP model -->
+            <thead>
+                <tr>
+                    <th>SNP</th>
+                    <th>CLDN</th>
+                    <th>CLNALLELEID</th>
+                    <th>CLNSIG</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <p class="note">
+            If you would like to seek further updates on clinical relevance, please insert CLNALLELEID on 
+            <a href="https://www.ncbi.nlm.nih.gov/clinvar/" target="_blank">ClinVar.</a>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

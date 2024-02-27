@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Differentiation Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_selection.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Population Differentiation Analysis</h1>
+        
+        <form action="" method="post">
+            <label for="population_type">Select Population:</label>
+            <select name="population_type" id="population_type" onchange="populateDropdown()">
+                <option value="Please Select Option">Please Select Option</option>
+                <option value="population">Population</option>
+            </select>
+
+            <div class="selected-populations" id="selectedPopulationsContainer">
+                <!-- Selected populations will be displayed here -->
+            </div>
+
+            <label for="selected_population">Select Population:</label>
+            <select name="selected_population" id="selected_population" multiple>
+                <!-- Options will be dynamically populated based on user selection -->
+            </select>
+            <small class="note">If you would like to select multiple regions, please click and hold down CTRL (Windows, Linux) or CMD (Mac OS).</small>
+
+            <label for="input_type">Select Input Type:</label>
+            <select name="input_type" id="input_type">
+                <option value="Please Select Option">Please Select Option</option>
+                <option value="snp_id">SNP ID(s)</option>
+                <option value="genomic_coordinates">Genomic Coordinates</option>
+                <option value="gene_names">Gene Names</option>
+            </select>
+
+            <label for="input_value">Enter Value(s):</label>
+            <input type="text" name="input_value" id="input_value" required>
+            <p class="note">If you would like to enter multiple values, please ensure they are comma separated.</p>
+            
+            <input type="submit" value="Submit Analysis">
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</body>
+</html>

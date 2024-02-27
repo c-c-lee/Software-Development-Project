@@ -1,0 +1,44 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: aliceblue;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#clinicalTable, #alleleFrequencyTable, #genotypeFrequencyTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#clinicalTable th, #clinicalTable td,
+#alleleFrequencyTable th, #alleleFrequencyTable td,
+#genotypeFrequencyTable th, #genotypeFrequencyTable td {
+    border: 1px solid steelblue;
+    background-color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+#clinicalTable th,
+#alleleFrequencyTable th,
+#genotypeFrequencyTable th {
+    background-color: steelblue;
+}
+
+button {
+    padding: 10px;
+    background-color: steelblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: mediumaquamarine;
+}

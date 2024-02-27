@@ -1,0 +1,36 @@
+/* about.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+}
+
+section.main-section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Add any additional styles specific to the about.html page */

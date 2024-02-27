@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">    
+    <title>About Arch Genetics</title>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>AG</h1>
+            <p>Arch Genetics</p>
+        </header>
+
+        <section class="main-section">
+            <h2>Project Overview and Objectives</h2>
+
+            <p>Welcome to Arch Genetics! Explore our user-friendly web application designed for the comprehensive analysis of genetic data. Collaborating with a clinician who collected samples in Siberia and integrated data from the 1000 Genomes Project, our app specialises in admixture, clustering and population differentiation analyses. Users can select specific populations or superpopulations, gaining insights into genetic relationships. The app also facilitates the retrieval of allele and genotype frequencies for SNPs of interest, providing valuable clinical relevance information. With informative plots and analyses, our tool is dedicated to answering key biological questions. Utilising SQL, our code is available on GitHub as a working prototype, laying the foundation for future development by professionals.</p>
+            <table>
+                <tr>
+                    <th>Objective</th>
+                    <th>Techniques</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><strong>Admixture Analysis</strong></td>
+                    <td>ADMIXTURE</td>
+                    <td>Leveraging established algorithms to quantify ancestral components, shedding light on historical gene flow and population mixing dynamics.</td>
+                </tr>
+                <tr>
+                    <td><strong>Clustering Analysis</strong></td>
+                    <td>PCA</td>
+                    <td>Employing cutting-edge clustering techniques to discern intricate patterns of relatedness among subgroups within the sampled populations.</td>
+                </tr>
+                <tr>
+                    <td><strong>Population Differentiation Analysis</strong></td>
+                    <td>Wright's F-statistics</td>
+                    <td>Producing a comprehensive matrix of pairwise population genetic differentiation, accompanied by visually intuitive representations, to discern genetic divergence among selected populations.</td>
+                </tr>
+                <tr>
+                    <td><strong>SNP Information</strong></td>
+                    <td>ANNOVAR</td>
+                    <td>Facilitating the retrieval of sample allele and genotype frequencies, coupled with clinical relevance information, for Single Nucleotide Polymorphisms (SNPs) of interest. This exploration extends to genomic regions, genes, and SNPs, allowing users to customise their analyses.</td>
+                </tr>
+            </table>
+
+            <h3>Accessing the Genetic Code</h3>
+
+            <p> Users can download the genetic data and annotation file from this <a href="https://drive.google.com/drive/folders/1pOK0YeOyB1itpyWR_9obdmekkIXBCZkj?usp=sharing">link</a>. For more detailed information, kindly refer to our comprehensive documentation on GitHub. </p>
+
+
+        </section>
+
+        <footer>
+            <nav></nav>
+                <a href="https://github.com/c-c-lee/Software-Development-Project">GitHub Repository</a>
+            </nav>
+        </footer>
+    </div>
+
+</body>
+</html>
