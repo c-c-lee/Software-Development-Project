@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> 
     <title>AG- Arch Genetics</title>
 </head>
 <body>
@@ -14,11 +14,11 @@
     </header>
 
     <section>
-        <a href="clustering.html" class="box">
+        <a href="/clustering" class="box">
             <h2>Clustering Analysis</h2>
             <p>Principal Component Analysis (PCA) is a dimensionality reduction technique, where it identifies the major axes of genetic variation to reveal underlying patterns of relatedness among individuals.</p>
         </a>
-        <a href="admixture" class="box">
+        <a href="admixture.html" class="box">
             <h2>Admixture Analysis</h2>
             <p>Quantify ancestral components to unveil insights into historical gene flow and population mixing.</p>
         </a>
@@ -30,5 +30,3 @@
 
 </body>
 </html>
-
-

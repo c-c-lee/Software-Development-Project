@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 from src.analysis.matrix_function import calculate_pairwise_fst
-from src.database.db_schema import db, app, SNP, Sample, AlleleFrequency, GenotypeFrequency
+from Flask_Project.src.database.db_schema import db, app, SNP, Sample, AlleleFrequency, GenotypeFrequency
 from src.database.db_sql_queries import get_AF_for_matrix_multiple_pop_genes, get_AF_for_matrix_multiple_pop_genomic_region, get_AF_for_matrix_multiple_pop_ids, get_AF_GF_from_id_list, get_AF_GF_from_gene_list, query_genomic_region_and_population_AF_GF, get_clinical_relevance_from_id_list, get_clinical_relevance_from_gene_list, get_clinical_relevance_from_genomic_region
 import base64
 from io import BytesIO

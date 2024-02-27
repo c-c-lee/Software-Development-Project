@@ -4,7 +4,7 @@ import pandas as pd
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
-from db_schema import Population  # Import the Population model from db_schema
+from Flask_Project.src.database.db_schema import Population  # Import the Population model from db_schema
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/cheaulee/Desktop/Software-Development-Project/Flask_Project/instance/ArchGenome.db'

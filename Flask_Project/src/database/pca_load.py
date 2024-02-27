@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from db_schema import db, PCA, Population
+from Flask_Project.src.database.db_schema import db, PCA, Population
 
 # Initialize Flask application
 app = Flask(__name__)

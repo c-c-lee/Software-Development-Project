@@ -1,7 +1,7 @@
 import gzip
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from db_schema import GenotypeFrequency
+from Flask_Project.src.database.db_schema import GenotypeFrequency
 import math
 
 app = Flask(__name__)
