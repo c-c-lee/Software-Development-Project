@@ -10,7 +10,7 @@
 <body>
     <h1>Admixture Analysis</h1>
     
-    <form action="{{ url_for('process_admixture') }}" method="post">
+    <form action="/process_admixture" method="post">
         <label for="population_type">Select Population/Superpopulation:</label>
         <select name="population_type" id="population_type" onchange="populateDropdown()">
             <option value="Please Select Option">Please Select Option</option>

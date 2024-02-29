@@ -1,0 +1,54 @@
+# Importing the csv module to handle CSV file operations.
+import csv
+
+# This function reads a TSV file containing sample IDs, populations, and super populations,
+# returning the data as a list of lists.
+def read_id_tsv(file_path):
+    with open(file_path, mode='r', newline='') as file:
+        # Initializing a CSV reader to parse the TSV file, specifying the tab delimiter.
+        reader = csv.reader(file, delimiter='\t')
+        # Reading all rows from the TSV file into a list and returning it.
+        return list(reader)
+
+# This function reads a Q file, which contains ancestry proportion data for each individual,
+# and returns the data with added headers based on the number of ancestries (K value).
+def read_q_file(file_path, k_value):
+    with open(file_path, mode='r', newline='') as file:
+        # Initializing a CSV reader to parse the Q file, specifying the space delimiter.
+        reader = csv.reader(file, delimiter=' ')
+        # Reading all non-empty rows from the Q file into a list and returning it.
+        return [row for row in reader if row]
+
+# This function merges ID data from a TSV file with Q data, then saves the merged data
+# into a new TSV file, adding ancestry proportion headers based on the K value.
+def merge_and_save(file_path, id_data, q_data, k_value):
+    # Verifying that the number of rows in the ID data (excluding the header)
+    # matches the number of rows in the Q data.
+    if len(id_data[1:]) != len(q_data):
+        # Printing a warning message if the row counts do not match.
+        print(f"Warning: The number of data lines in the Q file does not match the number of IDs. IDs: {len(id_data[1:])}, Q Data: {len(q_data)}")
+
+    # Creating a header row by combining the ID data header with ancestry proportion headers.
+    headers = id_data[0] + [f'Ancestry{i+1}' for i in range(k_value)]
+    with open(file_path, mode='w', newline='') as file:
+        # Initializing a CSV writer to write the merged data into a TSV file.
+        writer = csv.writer(file, delimiter='\t')
+        # Writing the header row to the file.
+        writer.writerow(headers)
+        # Iterating over the ID data and Q data simultaneously, merging each row and writing to the file.
+        for id_row, q_row in zip(id_data[1:], q_data):  # Skipping the header row in id_data
+            writer.writerow(id_row + q_row)
+
+# Defining file paths for the ID TSV file and the two Q files with different K values.
+id_tsv_file_path = '/Users/farzadhamzawe/group_project bioinformatics/admixture_3/270_selected_file_with_SP.tsv'
+q_file_k3_path = '/Users/farzadhamzawe/group_project bioinformatics/admixture_3/270_selected_pruned_output_prefix.3.Q'
+q_file_k5_path = '/Users/farzadhamzawe/group_project bioinformatics/admixture_3/270_selected_pruned_output_prefix.5.Q'
+
+# Reading the ID data from the TSV file and the ancestry proportion data from the two Q files.
+id_data = read_id_tsv(id_tsv_file_path)
+q_data_k3 = read_q_file(q_file_k3_path, 3)
+q_data_k5 = read_q_file(q_file_k5_path, 5)
+
+# Merging the ID data with the Q data for each K value and saving the merged data into new TSV files.
+merge_and_save('/Users/farzadhamzawe/group_project bioinformatics/admixture_3/merged_k3.tsv', id_data, q_data_k3, 3)
+merge_and_save('/Users/farzadhamzawe/group_project bioinformatics/admixture_3/merged_k5.tsv', id_data, q_data_k5, 5)

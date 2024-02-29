@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">    
-    <title>About Arch Genetics</title>
+    <title>About Arch Genome</title>
 </head>
 <body>
 
     <div class="container">
         <header>
             <h1>AG</h1>
-            <p>Arch Genetics</p>
+            <p>Arch Genome</p>
         </header>
 
         <section class="main-section">
             <h2>Project Overview and Objectives</h2>
 
-            <p>Welcome to Arch Genetics! Explore our user-friendly web application designed for the comprehensive analysis of genetic data. Collaborating with a clinician who collected samples in Siberia and integrated data from the 1000 Genomes Project, our app specialises in admixture, clustering and population differentiation analyses. Users can select specific populations or superpopulations, gaining insights into genetic relationships. The app also facilitates the retrieval of allele and genotype frequencies for SNPs of interest, providing valuable clinical relevance information. With informative plots and analyses, our tool is dedicated to answering key biological questions. Utilising SQL, our code is available on GitHub as a working prototype, laying the foundation for future development by professionals.</p>
+            <p>Welcome to Arch Genome! Explore our user-friendly web application designed for the comprehensive analysis of genetic data. Collaborating with a clinician who collected samples in Siberia and integrated data based on chromosome 1 (CHR1) from the 1000 Genomes Project, our app specializes in admixture, clustering, and population differentiation analyses. Users can select specific populations or superpopulations, gaining insights into genetic relationships. The app also facilitates the retrieval of allele and genotype frequencies for SNPs of interest, providing valuable clinical relevance information. With informative plots and analyses, our tool is dedicated to answering key biological questions. Utilizing SQL, our code is available on GitHub as a working prototype, laying the foundation for future development by professionals.</p>
+
             <table>
                 <tr>
                     <th>Objective</th>
@@ -37,25 +38,24 @@
                 </tr>
                 <tr>
                     <td><strong>Population Differentiation Analysis</strong></td>
-                    <td>Wright's F-statistics</td>
+                    <td>Weir and Cockerham F-statistics</td>
                     <td>Producing a comprehensive matrix of pairwise population genetic differentiation, accompanied by visually intuitive representations, to discern genetic divergence among selected populations.</td>
                 </tr>
                 <tr>
                     <td><strong>SNP Information</strong></td>
-                    <td>ANNOVAR</td>
-                    <td>Facilitating the retrieval of sample allele and genotype frequencies, coupled with clinical relevance information, for Single Nucleotide Polymorphisms (SNPs) of interest. This exploration extends to genomic regions, genes, and SNPs, allowing users to customise their analyses.</td>
+                    <td>ANNOVAR, VCFtools</td>
+                    <td>Facilitating the retrieval of sample allele and genotype frequencies, coupled with clinical relevance information, for Single Nucleotide Polymorphisms (SNPs) of interest. This exploration extends to genomic regions, genes, and SNPs, allowing users to customize their analyses.</td>
                 </tr>
             </table>
 
             <h3>Accessing the Genetic Code</h3>
 
-            <p> Users can download the genetic data and annotation file from this <a href="https://drive.google.com/drive/folders/1pOK0YeOyB1itpyWR_9obdmekkIXBCZkj?usp=sharing">link</a>. For more detailed information, kindly refer to our comprehensive documentation on GitHub. </p>
-
+            <p>Users can download the genetic data and annotation file from this <a href="https://drive.google.com/drive/folders/1pOK0YeOyB1itpyWR_9obdmekkIXBCZkj?usp=sharing">link</a>. For more detailed information, kindly refer to our comprehensive documentation on GitHub. Our application, version 1.0, integrates genomic data from the hg38refGene dataset (last updated on August 17, 2020, at UCSC) and the hg38clinvar dataset (with data up to December 31, 2022). Additionally, we collaborate with genetic researchers, and our genetic dataset, comprising chr1.vcf.gz and sample_pop.tsv files, was last updated on January 18, 2024. We are committed to providing you with the latest and most comprehensive genomic information in our app.</p>
 
         </section>
 
         <footer>
-            <nav></nav>
+            <nav>
                 <a href="https://github.com/c-c-lee/Software-Development-Project">GitHub Repository</a>
             </nav>
         </footer>

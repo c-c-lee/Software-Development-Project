@@ -26,14 +26,16 @@
             </thead>
             <tbody>
                 <!-- Data will be dynamically inserted here -->
+                {% for result in results %}
                 <tr>
                     <td>{{ selected_population }}</td>
-                    <td>{{ allele_frequency.REF }}</td>
-                    <td>{{ allele_frequency.ALT }}</td>
-                    <td>{{ genotype_frequency.Freq_HOM1 }}</td>
-                    <td>{{ genotype_frequency.Freq_HET }}</td>
-                    <td>{{ genotype_frequency.Freq_HOM2 }}</td>
+                    <td>{{ result.allele_frequency.REF }}</td>
+                    <td>{{ result.allele_frequency.ALT }}</td>
+                    <td>{{ result.genotype_frequency.Freq_HOM1 }}</td>
+                    <td>{{ result.genotype_frequency.Freq_HET }}</td>
+                    <td>{{ result.genotype_frequency.Freq_HOM2 }}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
 
@@ -51,12 +53,14 @@
             </thead>
             <tbody>
                 <!-- Data will be dynamically inserted here -->
+                {% for i in results %}
                 <tr>
-                    <td>{{ snp.id }}</td>
-                    <td>{{ snp.CLNDN }}</td>
-                    <td>{{ snp.CLNALLELEID }}</td>
-                    <td>{{ snp.CLNSIG }}</td>
+                    <td>{{ i.snp.id }}</td>
+                    <td>{{ i.snp.CLNDN }}</td>
+                    <td>{{ i.snp.CLNALLELEID }}</td>
+                    <td>{{ i.snp.CLNSIG }}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
         <p class="note">

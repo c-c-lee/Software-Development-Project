@@ -1,5 +1,3 @@
-# .gitignore
-# Virtual Environment
-/flask_env
-.code-workspace
-
+env/
+ArchGenome.db
+.env

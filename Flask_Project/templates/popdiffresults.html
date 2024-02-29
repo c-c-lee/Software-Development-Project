@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Population Differentiation Analysis Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='snp_pop_results.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='popresults.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>Population Differentiation Analysis Results</h1>
          <p>Population Differentiation Matrix</p>
         <div id="populationMatrix">
-            <!-- Adjust content based on your representation of the population matrix -->
+            {% for filenames in filenames_lst %}
+                <img src="{{ url_for('static', filename='heatmap/' + filenames) }}" alt="Population Differentiation Heatmap" class="pop-results">
+            {% endfor %}
         </div>
 
-        <button id="downloadButton">Download Text File</button>
+        <!-- <button id="downloadButton">Download Text File</button> -->
+        {% if c == 0 %}
+            <a href="/download_fst_matrix">Download Text File</a>
+        {% elif c == 1 %}
+            <a href="/download_fst_results_positions">Download Text File</a>
+        {% elif c == 2 %}
+            <a href="/download_genes_fst_results">Download Text File</a>
+        {% endif %}
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
