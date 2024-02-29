@@ -4,24 +4,14 @@ from pca import load_pca_data, main
 import matplotlib
 import matplotlib.pyplot as plt
 import os
-from flask import Flask, request, render_template, url_for, send_file
+from flask import Flask, request, render_template, url_for
 
-from flask_admixture import main_population_code, plot_admixture_for_superpopulation, check_input, get_population_code, get_superpopulation_code
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-
-from matrix_function import calculate_pairwise_fst
-from db_schema import db, Population, Sample, SNP, AlleleFrequency, GenotypeFrequency
-
-import SNPID_PD
-import Genomic_Coordinates_PD
-import Gene_Name_PD
+# Path to the database file
+db_path = 'Software-Development-Project/instance/Archgenome.db'
 
 app = Flask(__name__, static_url_path='/static')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ArchGenome.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db.init_app(app)
+
+# Clustering analysis route
 
 @app.route("/")
 def home():

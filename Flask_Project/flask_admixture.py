@@ -5,11 +5,9 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 plt.ioff()
 
-# Set the absolute path to your app root directory
-app_root_dir = '"C:/Users/roxan/OneDrive/Documents/GitHub/Software-Development-Project"'
-db_path = "instance/ArchGenome.db" # Set the path to the database
-images_dir = "static/images" # Set the path to where images are saved when generated
-
+# Set the absolute path to your database
+db_path = "Software-Development-Project/instance/ArchGenome.db"
+images_dir = os.path.join('/Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/static', 'images')
 if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
@@ -47,6 +45,8 @@ def plot_admixture_with_sample_labels(admixture_data, k_value, colors, populatio
         for color, value in zip(colors, admixture_data.iloc[i, 3:]):  # Skip ID, Population Code, Super Population columns
             ax.bar(bar_position, value, bottom=bottom, color=color, width=bar_width)
             bottom += value
+    
+   
     
     # Set the x-ticks to be the middle of each bar
     tick_positions = [i for i in range(10)]
@@ -229,6 +229,9 @@ def get_superpopulation_code(full_name):
         'South Asian': 'SAS'
     }
     return superpopulation_name_to_code.get(full_name)
+
+
+
     
 def check_input(input_value):
     # Connect to the SQLite database
@@ -268,23 +271,19 @@ def main_population_code(population_code):
     return [plot_filename_k3, plot_filename_k5]  # Return the filenames of the saved plots
 
 # Main function to fetch and plot admixture data based on population_code or superpopulation
-def main(input_value=None):
-    # If no input_value is provided, default to a placeholder or fetch dynamically
-    if input_value is None:
-        input_value = "ABC"  # Placeholder, adjust as needed or remove if not desired
-    # Determine if the input is a population code or a superpopulation
-    is_population, is_superpopulation = check_input(input_value)
-
+def main():
+    population_or_superpopulation = "ABC"  # Replace with your desired code or superpopulation
+    is_population, is_superpopulation = check_input(population_or_superpopulation)
+    
     if is_population:
-        return main_population_code(input_value)
+        main_population_code(population_or_superpopulation)
     elif is_superpopulation:
-        return plot_admixture_for_superpopulation(input_value)
+        plot_admixture_for_superpopulation(population_or_superpopulation)
     else:
         print("Invalid input: Please enter a valid population code or superpopulation.")
 
-# example tryout: 
-#if __name__ == '__main__':
-   # main('')
+if __name__ == '__main__':
+    main()
 
 
 
