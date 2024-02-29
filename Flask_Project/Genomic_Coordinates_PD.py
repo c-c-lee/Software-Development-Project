@@ -4,9 +4,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 
-# Path to SQLite database
+# Path to your SQLite database
 db_path = 'instance/ArchGenome.db'
-base_output_dir = 'static/heatmap' # Path to where the images are saved
+base_output_dir = 'static/heatmap'
 
 def get_allele_frequency_by_position(position, population_codes):
     """Retrieve allele frequencies for a given genomic position and list of population codes."""
@@ -86,7 +86,7 @@ def plot_heatmap(df_fst, position):
 
     return image_name
 
-# Test the calculate_fst function with multiple populations and genomic positions
+# # Test the calculate_fst function with multiple populations and genomic positions
 # population_codes = ["JPT", "GBR", "MXL"]
 # positions = [10437, 10438]  # Replace with the actual genomic positions
 # fst_results = calculate_fst(population_codes, positions)

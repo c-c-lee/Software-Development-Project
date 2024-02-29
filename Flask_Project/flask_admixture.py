@@ -6,8 +6,10 @@ import matplotlib.patches as mpatches
 plt.ioff()
 
 # Set the absolute path to your database
-db_path = "Software-Development-Project/instance/ArchGenome.db"
-images_dir = os.path.join('/Users/farzadhamzawe/group_project bioinformatics/Software-Development-Project/Flask_Project/static', 'images')
+app_root_dir = 'C:/Users/ayush/OneDrive/Documents/Software-Development-Project'
+db_path = "instance/ArchGenome.db"
+images_dir = "static/images"
+
 if not os.path.exists(images_dir):
     os.makedirs(images_dir)
 
@@ -271,19 +273,23 @@ def main_population_code(population_code):
     return [plot_filename_k3, plot_filename_k5]  # Return the filenames of the saved plots
 
 # Main function to fetch and plot admixture data based on population_code or superpopulation
-def main():
-    population_or_superpopulation = "ABC"  # Replace with your desired code or superpopulation
-    is_population, is_superpopulation = check_input(population_or_superpopulation)
-    
+def main(input_value=None):
+    # If no input_value is provided, default to a placeholder or fetch dynamically
+    if input_value is None:
+        input_value = "ABC"  # Placeholder, adjust as needed or remove if not desired
+    # Determine if the input is a population code or a superpopulation
+    is_population, is_superpopulation = check_input(input_value)
+
     if is_population:
-        main_population_code(population_or_superpopulation)
+        return main_population_code(input_value)
     elif is_superpopulation:
-        plot_admixture_for_superpopulation(population_or_superpopulation)
+        return plot_admixture_for_superpopulation(input_value)
     else:
         print("Invalid input: Please enter a valid population code or superpopulation.")
 
-if __name__ == '__main__':
-    main()
+# example tryout: 
+#if __name__ == '__main__':
+   # main('')
 
 
 

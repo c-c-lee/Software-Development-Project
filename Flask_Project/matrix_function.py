@@ -89,6 +89,8 @@ def calculate_pairwise_fst(data, output_file_path='Pop_diff_result/pairwise_fst.
     if not os.path.exists(result_dir):
         os.makedirs(result_dir)
 
+
+
     # Save the file
     pairwise_fst_matrix.to_csv(output_file_path, sep='\t', float_format='%.3f')
 

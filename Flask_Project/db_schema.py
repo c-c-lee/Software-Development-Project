@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 # Define models
 class Population(db.Model):
     population_code = db.Column(db.String(255), primary_key=True)
@@ -58,10 +59,10 @@ class AdmixtureK5(db.Model):
     Ancestry5 = db.Column(db.Float, nullable=False)
 
 class PCA(db.Model):
-    id = db.Column(db.Integer, primary_key=True)  
-    individual_id = db.Column(db.String(255), nullable=False)  
-    pc1 = db.Column(db.Float, nullable=False)  
-    pc2 = db.Column(db.Float, nullable=False)  
+    id = db.Column(db.Integer, primary_key=True)  # Added to serve as a unique identifier
+    individual_id = db.Column(db.String(255), nullable=False)  # To store IndividualID
+    pc1 = db.Column(db.Float, nullable=False)  # To store PC1 scores
+    pc2 = db.Column(db.Float, nullable=False)  # To store PC2 scores
     population_code = db.Column(db.String(255), db.ForeignKey('population.population_code'), nullable=False)
     superpopulation = db.Column(db.String(255), nullable=False)
     

@@ -3,10 +3,9 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
-
 # Path to your SQLite database
 db_path = 'instance/ArchGenome.db'
-base_output_dir = 'static/heatmap' # Path to where pictures are saved
+base_output_dir = 'static/heatmap'
 
 def sanitize_filename(filename):
     # Replace invalid characters with underscores

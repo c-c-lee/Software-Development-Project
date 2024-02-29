@@ -19,21 +19,22 @@ def is_numeric(value):
 
 def load_genotype_frequency_data(file_path, population_code):
     with gzip.open(file_path, 'rt') as file:
+        # Assuming your TSV has a header and values are separated by tabs
         header = file.readline().strip().split('\t')
 
         for line in file:
             values = line.strip().split('\t')
 
-            # Columns in TSV match the model attributes
+            # Assuming columns in your TSV match the model attributes
             chromosome = values[0]
             position = int(values[1])
 
-            # Convert to float
+            # Replace 'nan' with None and then convert to float
             freq_hom1 = float(values[2]) if is_numeric(values[2]) else None
             freq_het = float(values[3]) if is_numeric(values[3]) else None
             freq_hom2 = float(values[4]) if is_numeric(values[4]) else None
 
-            # Default value input here (e.g., 0.0)
+            # Replace 'nan' with a default value (e.g., 0.0)
             freq_hom1 = freq_hom1 if freq_hom1 is not None and not math.isnan(freq_hom1) else 0.0
             freq_het = freq_het if freq_het is not None and not math.isnan(freq_het) else 0.0
             freq_hom2 = freq_hom2 if freq_hom2 is not None and not math.isnan(freq_hom2) else 0.0

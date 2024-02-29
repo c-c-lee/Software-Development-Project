@@ -19,20 +19,21 @@ def is_numeric(value):
 
 def load_allele_frequency_data(file_path, population_code):
     with gzip.open(file_path, 'rt') as file:
+        # Assuming your TSV has header and values are separated by tabs
         header = file.readline().strip().split('\t')
 
         for line in file:
             values = line.strip().split('\t')
 
-            # Columns in TSV should match the model attributes
+            # Assuming columns in your TSV match the model attributes
             chromosome = values[0]
             position = int(values[1])
             
-            # Converts to float
+            # Replace 'nan' with None and then convert to float
             ref = float(values[2]) if is_numeric(values[2]) else None
             alt = float(values[3]) if is_numeric(values[3]) else None
 
-            # Default value input here (e.g., 0.0)
+            # Replace 'nan' with a default value (e.g., 0.0)
             ref = ref if ref is not None and not math.isnan(ref) else 0.0
             alt = alt if alt is not None and not math.isnan(alt) else 0.0
 

@@ -4,14 +4,24 @@ from pca import load_pca_data, main
 import matplotlib
 import matplotlib.pyplot as plt
 import os
-from flask import Flask, request, render_template, url_for
+from flask import Flask, request, render_template, url_for, send_file
 
-# Path to the database file
-db_path = 'Software-Development-Project/instance/Archgenome.db'
+from flask_admixture import main_population_code, plot_admixture_for_superpopulation, check_input, get_population_code, get_superpopulation_code
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
+from matrix_function import calculate_pairwise_fst
+from db_schema import db, Population, Sample, SNP, AlleleFrequency, GenotypeFrequency
+
+import SNPID_PD
+import Genomic_Coordinates_PD
+import Gene_Name_PD
 
 app = Flask(__name__, static_url_path='/static')
-
-# Clustering analysis route
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ArchGenome.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
 
 @app.route("/")
 def home():
@@ -27,7 +37,6 @@ def about():
 
 @app.route('/clustering', methods=['GET'])
 def clustering():
-    # This route should simply show the form.
     return render_template('clustering.html')
 
 @app.route('/process_clustering', methods=['POST'])
@@ -56,11 +65,11 @@ def admixture():
 def process_admixture():
     try:
         population_type = request.form['population_type']
-        selected_items = request.form.getlist('selected_population')  
+        selected_items = request.form.getlist('selected_population')  # Correct variable name
         plot_filenames = []
 
         if population_type == 'superpopulation':
-            for full_name in selected_items:  
+            for full_name in selected_items:  # Use 'selected_items' here
                 superpopulation_code = get_superpopulation_code(full_name)
                 if superpopulation_code:  # This 'if' block should be inside the 'for' loop
                     plot_files = plot_admixture_for_superpopulation(superpopulation_code)
@@ -68,7 +77,7 @@ def process_admixture():
                 else:
                     print(f"Superpopulation code for '{full_name}' not found.")
         elif population_type == 'population':
-            for full_name in selected_items:  
+            for full_name in selected_items:  # Use 'selected_items' here as well
                 population_code = get_population_code(full_name)
                 if population_code:
                     plot_files = main_population_code(population_code)
@@ -131,7 +140,7 @@ def process_popdiff():
                 positions.append(int(i))
 
             # population_codes = ["JPT", "GBR", "MXL"]
-            # positions = [10437, 10438]  
+            # positions = [10437, 10438]  # Replace with the actual genomic positions
             
             fst_results = Genomic_Coordinates_PD.calculate_fst(population_codes, positions)
             df_fst = Genomic_Coordinates_PD.save_fst_results_to_dataframe(fst_results)
@@ -187,7 +196,6 @@ def download_fst_matrixxx():
 
 # SNP Matrix route
 @app.route('/snp', methods=['GET'])
-    # This route should simply show the form.
 def snp_information():
     return render_template('snp.html')
 

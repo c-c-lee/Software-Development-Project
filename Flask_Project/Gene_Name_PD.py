@@ -3,10 +3,9 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
-
-# Path to database
+# Path to your SQLite database
 db_path = 'instance/ArchGenome.db'
-base_output_dir = 'static/heatmap' # Path to where the images are saved
+base_output_dir = 'static/heatmap'
 
 def get_allele_frequency_by_gene(gene_name, population_codes):
     """Retrieve allele frequencies for a given gene name and list of population codes."""

@@ -7,8 +7,9 @@ from db_schema import db, PCA, Population
 # Initialize Flask application
 app = Flask(__name__)
 
-# Used path of your project root path
-project_root = 'C:/Users/roxan/OneDrive/Documents/GitHub/Software-Development-Project'
+# Used path of the project root path
+print("ppppp")
+project_root = 'C:/Users/ayush/OneDrive/Documents/Software-Development-Project'
 # Absolute path to the database file
 database_path = os.path.join(project_root, 'instance', 'ArchGenome.db')
 
