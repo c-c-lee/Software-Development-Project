@@ -5,7 +5,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 # Initialize Flask app
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Configure the SQLAlchemy database URI, defaulting to a SQLite database named ArchGenome.db
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', 'sqlite:///ArchGenome.db')
@@ -52,7 +52,7 @@ def populate_admixture_table(file_path, table_model):
         print(f"Error inserting entries from {file_path} into {table_model._name_}: {str(e)}")
 
 # Main block to run the script
-if _name_ == '_main_':
+if __name__ == '__main__':
     # Ensure the Flask app context is available for SQLAlchemy operations
     with app.app_context():
         # Define the base directory for the TSV files
